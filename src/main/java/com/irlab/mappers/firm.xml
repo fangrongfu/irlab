@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.irlab.dao.FirmDao">
+<resultMap type="Firm" id="FirmResult">
+	<id property="f_id" column="f_id"/>
+	<result property="f_name" column="f_name"/>
+	<result property="f_code" column="f_code"/>
+</resultMap>
+    <!-- 查询所有的公司信息 -->
+	<select id="selectAllFirm" resultMap="FirmResult">
+		select * from firm
+	</select>	
+</mapper> 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.irlab.dao.NoticesDao">
+<resultMap type="Notices" id="NoticesResult">
+	<id property="n_id" column="n_id"/>
+	<result property="n_name" column="n_name"/>
+	<result property="n_code" column="n_code"/>
+	<result property="n_title" column="n_title"/>
+	<result property="n_time" column="n_time"/>
+	<result property="n_content" column="n_content"/>
+	<result property="n_url" column="n_url"/>
+</resultMap>
+<!-- 将公告信息添加到notices表中 -->
+<insert id="addNotices" parameterType="Notices">
+	insert into notices values(null,#{n_name},#{n_code},#{n_title},#{n_time},#{n_content},#{n_url})
+</insert>
+<!-- 通过url来查询公告的信息 -->
+<select id="selectNoticesByUrl" parameterType="Notices" resultMap="NoticesResult">
+	select n_id from notices where n_url = #{n_url}
+</select>
+</mapper>

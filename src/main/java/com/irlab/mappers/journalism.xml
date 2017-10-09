@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.irlab.dao.JournalismDao">
+<resultMap type="Journalism" id="JournalismResult">  
+		<id property="j_id" column="j_id" />
+		<result property="j_title" column="j_title"/>
+		<result property="j_time" column="j_time"/>
+		<result property="j_digest" column="j_digest"/>
+		<result property="j_content" column="j_content"/>
+		<result property="j_url" column="j_url"/>
+    </resultMap>  
+	<!-- 添加新闻信息到新闻表中 -->
+	<insert id="addJournalism" parameterType="Journalism">
+		insert into journalism
+		values(null,#{j_title},#{j_time},#{j_digest},#{j_content},#{j_url});
+	</insert>
+	<!-- 通过url来查询新闻信息 -->
+	<select id="selectJournalismByUrl" parameterType="Journalism" resultMap="JournalismResult">
+		select j_id
+		from journalism where j_url = #{j_url}
+	</select>
+</mapper> 

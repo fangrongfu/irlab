@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="log4j.properties"/> 
+     
+	<typeAliases>
+		<typeAlias alias="Journalism" type="com.irlab.entity.Journalism" />
+		<typeAlias alias="Firm" type="com.irlab.entity.Firm" />
+		<typeAlias alias="Notice" type="com.irlab.entity.Notice" />
+		<typeAlias alias="Notices" type="com.irlab.entity.Notices" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://202.114.70.53:3306/finance?useUnicode=true&amp;characterEncoding=UTF-8" />
+				<property name="username" value="root" />
+				<property name="password" value="irlab2013" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/irlab/mappers/journalism.xml" />
+		<mapper resource="com/irlab/mappers/Firm.xml" />
+		<mapper resource="com/irlab/mappers/Notice.xml" />
+		<mapper resource="com/irlab/mappers/Notices.xml" />
+	</mappers>
+
+</configuration>    
